@@ -1,1 +1,2 @@
+# Configura o Husky para executar uma verificação do código com lint-staged antes de cada commit.
 npx lint-staged

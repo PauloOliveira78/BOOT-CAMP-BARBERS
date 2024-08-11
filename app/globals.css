@@ -1,8 +1,9 @@
+/* Importa as configurações básicas do Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
+/* Define o tema "dark" com variáveis CSS */
 @layer base {
   .dark {
     --background: 225 9% 9%;
@@ -37,6 +38,7 @@
   }
 }
 
+/* Aplica estilos base para todos os elementos e para a estrutura do HTML */
 @layer base {
   * {
     @apply border-border antialiased;
