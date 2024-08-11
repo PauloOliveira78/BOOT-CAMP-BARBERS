@@ -75,13 +75,16 @@ const Home = async () => {
         <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
           Recomendados
         </h2>
+        <div className="flex gap-4 overflow-auto [&:: wbkit-scrollbar]:hidden">
         {barbershops.map((barbershop) => (
           <BarberShopItem key={barbershop.id} barbershop={barbershop} />
+        
         ))}
+         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 // Exporta a função Home como o componente padrão da página
 export default Home;
