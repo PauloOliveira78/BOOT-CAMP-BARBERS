@@ -560,9 +560,6 @@ body {
 .top-2 {
   top: 0.5rem;
 }
-.z-50 {
-  z-index: 50;
-}
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -612,17 +609,8 @@ body {
 .w-full {
   width: 100%;
 }
-.w-\[159px\] {
-  width: 159px;
-}
 .min-w-\[159px\] {
   min-width: 159px;
-}
-.min-w-full {
-  min-width: 100%;
-}
-.max-w-full {
-  max-width: 100%;
 }
 .shrink-0 {
   flex-shrink: 0;
@@ -648,6 +636,9 @@ body {
 .gap-2 {
   gap: 0.5rem;
 }
+.gap-3 {
+  gap: 0.75rem;
+}
 .gap-4 {
   gap: 1rem;
 }
@@ -662,6 +653,9 @@ body {
 .overflow-hidden {
   overflow: hidden;
 }
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -673,6 +667,9 @@ body {
 .rounded {
   border-radius: 0.25rem;
 }
+.rounded-2xl {
+  border-radius: 1rem;
+}
 .rounded-full {
   border-radius: 9999px;
 }
@@ -681,9 +678,6 @@ body {
 }
 .rounded-md {
   border-radius: calc(var(--radius) - 2px);
-}
-.rounded-2xl {
-  border-radius: 1rem;
 }
 .border {
   border-width: 1px;
@@ -721,10 +715,6 @@ body {
 .fill-primary {
   fill: hsl(var(--primary));
 }
-.object-contain {
-  -o-object-fit: contain;
-     object-fit: contain;
-}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -740,6 +730,14 @@ body {
 }
 .p-6 {
   padding: 1.5rem;
+}
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .px-2\.5 {
   padding-left: 0.625rem;
@@ -769,30 +767,23 @@ body {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .pl-5 {
   padding-left: 1.25rem;
 }
 .pt-0 {
   padding-top: 0px;
-}
-.pb-3 {
-  padding-bottom: 0.75rem;
 }
 .pt-1 {
   padding-top: 0.25rem;
@@ -988,5 +979,8 @@ body {
 }
 .dark\:text-foreground:is(.dark *) {
   color: hsl(var(--foreground));
+}
+.\[\&\:\:-webkit-scrollbar\]\:hidden::-webkit-scrollbar {
+  display: none;
 }
 

@@ -1,39 +1,77 @@
 // Importa componentes e utilitários necessários para a página
-import { SearchIcon } from "lucide-react";
+import { EuroIcon, EyeIcon, FootprintsIcon, SearchIcon } from "lucide-react";
 import Header from "./_components/ui/header";
-import Image from "next/image";
+import Image from "next/image"; // Certifique-se de que isso está aqui
 import { Card, CardContent } from "./_components/ui/card";
 import { Badge } from "./_components/ui/badge";
 import { Avatar, AvatarImage } from "./_components/ui/avatar";
 import { db } from "./_lib/prisma";
 import BarberShopItem from "./_components/ui/barbershop-item";
+import { Button } from "./_components/ui/button";
 
 // Função assíncrona que retorna a página inicial da aplicação
 const Home = async () => {
   // Busca as barbearias no banco de dados utilizando Prisma
   const barbershops = await db.barbershop.findMany({});
-  console.log({ barbershops });
+  const popularBabershops = await db.barbershop.findMany({
+    orderBy: {
+      name: 'desc',
+    }
+  });
 
   return (
     // Estrutura principal da página com o tema dark aplicado
-    <div className="p-5 dark:bg-background dark:text-foreground">
-      {/* Componente de cabeçalho */}
-      <Header />
+    <>
+      <div className="p-5 dark:bg-background dark:text-foreground">
+        {/* Componente de cabeçalho */}
+        <Header />
 
-      <div className="mt-6">
-        {/* Saudação do usuário */}
-        <h2 className="text-xl font-bold">Olá, Paulinho</h2>
-        <p className="text-sm">Segunda-feira, 05 de Agosto.</p>
+        <div className="mt-6">
+          {/* Saudação do usuário */}
+          <h2 className="text-xl font-bold">Olá, Paulinho</h2>
+          <p className="text-sm">Segunda-feira, 05 de Agosto.</p>
 
-        {/* Campo de busca */}
-        <div className="mt-6 flex items-center gap-2 rounded bg-card p-2 shadow">
-          <input
-            className="flex-grow p-2 bg-transparent text-card-foreground focus:outline-none"
-            placeholder="Faça sua busca..."
-          />
-          <button className="p-2 bg-primary rounded text-primary-foreground">
-            <SearchIcon />
-          </button>
+          {/* Campo de busca */}
+          <div className="mt-6 flex items-center gap-2 rounded bg-card p-2 shadow">
+            <input
+              className="flex-grow p-2 bg-transparent text-card-foreground focus:outline-none"
+              placeholder="Faça sua busca..." />
+            <button className="p-2 bg-primary rounded text-primary-foreground">
+              <SearchIcon />
+            </button>
+          </div>
+
+          {/* Busca rápida */}
+          <div className="mt-6 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
+            <Button className="gap-2" variant="secondary">
+              {/* Usando o componente Image de Next.js */}
+              <Image src="/Cabelo.svg" width={16} height={16} alt="Cabelo" />
+              Cabelo      
+            </Button>
+          
+            <Button className="gap-2" variant="secondary">
+              {/* Usando o componente Image de Next.js */}
+              <Image src="/Barba.svg" width={16} height={16} alt="Barba" />
+              Barba      
+            </Button>
+
+              <Button className="gap-2" variant="secondary">
+              {/* Usando o componente Image de Next.js */}
+              <Image src="/Acabamento.svg" width={16} height={16} alt="Acabamento" />
+              Acabamento      
+            </Button>       
+
+              <Button className="gap-2" variant="secondary">
+              <FootprintsIcon size={16} />
+              Pézinho      
+            </Button>      
+
+               <Button className="gap-2" variant="secondary">
+              <EyeIcon size={16} />
+              Sobrancelha      
+            </Button>                                         
+          
+          </div>
         </div>
 
         {/* Banner da página */}
@@ -41,8 +79,7 @@ const Home = async () => {
           <img
             className="aspect-square h-full w-full"
             src="/Banner01.png"
-            alt="Agende nos Melhores com FSW Barber"
-          />
+            alt="Agende nos Melhores com FSW Barber" />
         </div>
 
         {/* Seção de Agendamentos */}
@@ -75,16 +112,34 @@ const Home = async () => {
         <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
           Recomendados
         </h2>
-        <div className="flex gap-4 overflow-auto [&:: wbkit-scrollbar]:hidden">
-        {barbershops.map((barbershop) => (
-          <BarberShopItem key={barbershop.id} barbershop={barbershop} />
-        
-        ))}
-         </div>
+        <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
+          {barbershops.map((barbershop) => (
+            <BarberShopItem key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
+
+        {/* Seção de Barbearias Populares */}
+        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+          Populares
+        </h2>
+        <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
+          {popularBabershops.map((barbershop) => (
+            <BarberShopItem key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
+
+        {/* Rodapé da página */}
+        <footer>
+          <Card>
+            <CardContent className="px-5 py-6">
+              <p className="text-sm text-gray-400">@ 2024 Copyright Paulo Oliveira</p>
+            </CardContent>
+          </Card>
+        </footer>
       </div>
-    </div>
-  )
-}
+    </>
+  );
+};
 
 // Exporta a função Home como o componente padrão da página
 export default Home;
