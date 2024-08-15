@@ -55,22 +55,21 @@ const Home = async () => {
               Barba      
             </Button>
 
-              <Button className="gap-2" variant="secondary">
+            <Button className="gap-2" variant="secondary">
               {/* Usando o componente Image de Next.js */}
               <Image src="/Acabamento.svg" width={16} height={16} alt="Acabamento" />
               Acabamento      
             </Button>       
 
-              <Button className="gap-2" variant="secondary">
+            <Button className="gap-2" variant="secondary">
               <FootprintsIcon size={16} />
               Pézinho      
             </Button>      
 
-               <Button className="gap-2" variant="secondary">
+            <Button className="gap-2" variant="secondary">
               <EyeIcon size={16} />
               Sobrancelha      
             </Button>                                         
-          
           </div>
         </div>
 
@@ -102,8 +101,8 @@ const Home = async () => {
             {/* Data e horário do agendamento (direita) */}
             <div className="flex flex-col items-center justify-center border-l-2 px-5 text-center">
               <p className="text-sm">Agosto</p>
-              <p className="text-2xl font-bold">05</p>
-              <p className="text-sm">20:00</p>
+              <p className="text-2xl font-bold">18</p>
+              <p className="text-sm">12:00</p>
             </div>
           </CardContent>
         </Card>
