@@ -127,14 +127,7 @@ const Home = async () => {
           ))}
         </div>
 
-        {/* Rodapé da página */}
-        <footer>
-          <Card>
-            <CardContent className="px-5 py-6">
-              <p className="text-sm text-gray-400">@ 2024 Copyright Paulo Oliveira</p>
-            </CardContent>
-          </Card>
-        </footer>
+        
       </div>
     </>
   );
