@@ -1,2 +1,0 @@
-# Configura o Husky para verificar a mensagem do commit antes de confirmar.
-.git/hooks/commit-msg $1
